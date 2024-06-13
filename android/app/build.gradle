@@ -102,6 +102,12 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
 }
 
 dependencies {
@@ -113,6 +119,11 @@ dependencies {
     } else {
         implementation jscFlavor
     }
+
+    implementation fileTree(dir: "libs", include: ["*.jar", "*.aar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    implementation(name: 'libDevice_v1.7.8_2022-06-17', ext: 'aar')
+    implementation(name:'libUHF_v3.2.24_20231008', ext:'aar')
 }
 
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)

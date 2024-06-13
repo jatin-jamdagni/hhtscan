@@ -1,3 +1,22 @@
 {
-  "extends": "@react-native/typescript-config/tsconfig.json"
+  "compilerOptions": {
+    "target": "esnext",                         // Latest JavaScript version
+    "module": "esnext",                         // Module system
+    "lib": ["esnext"],                          // Library files to include
+    "allowJs": true,                            // Allow JavaScript files to be compiled
+    "skipLibCheck": true,                       // Skip type checking of declaration files
+    "esModuleInterop": true,                    // Emit additional JS to ease interop with non-ES6 modules
+    "allowSyntheticDefaultImports": true,       // Allow default imports from modules with no default export
+    "strict": true,                             // Enable all strict type-checking options
+    "noImplicitAny": true,                      // Raise error on expressions and declarations with an implied any type
+    "moduleResolution": "node",                 // Module resolution strategy
+    "baseUrl": ".",                             // Base directory to resolve non-relative module names
+    "paths": {                                  // Path mapping to handle module resolution
+      "@/*": ["src/*"]
+    },
+    "jsx": "react-native",                      // JSX code generation for React Native
+    "noEmit": true                              // Do not emit output
+  },
+  "include": ["src/**/*"],                       // Include all files in the src directory
+  "exclude": ["node_modules", "babel.config.js", "metro.config.js", "jest.config.js"]  // Exclude these directories/files
 }
